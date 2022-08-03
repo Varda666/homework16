@@ -99,3 +99,33 @@ with open(f"orders.json", 'r', encoding='utf-8') as file__:
 
 db.create_all()
 
+@app.route("/users")
+def get_all_users():
+    users = User.query.all()
+    return jsonify(users)
+
+@app.route("/users/<int:id>")
+def get_one_user_by_id():
+    user = User.query.get(id)
+    return jsonify(user)
+
+@app.route("/orders")
+def get_all_orders():
+    orders = Order.query.all()
+    return jsonify(orders)
+
+@app.route("/orders/<int:id>")
+def get_one_order_by_id():
+    order = Order.query.get(id)
+    return jsonify(order)
+
+@app.route("/offers")
+def get_all_offers():
+    offers = Offer.query.all()
+    return jsonify(offers)
+
+@app.route("/offers/<int:id>")
+def get_one_offer_by_id():
+    offer = Offer.query.get(id)
+    return jsonify(offer)
+
